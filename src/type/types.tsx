@@ -6,4 +6,13 @@ export interface servicesType {
     description:string;
     color:string;
     badge:string | null;
-}
+};
+
+export interface testimonialsType {
+    name: string;
+    role: string;
+    company: string;
+    image: string;
+    quote: string;
+    rating: number;
+};

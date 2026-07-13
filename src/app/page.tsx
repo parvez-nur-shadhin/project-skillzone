@@ -1,7 +1,9 @@
+import Banner from "@/Components/Banner";
+
 export default function Home() {
   return (
     <div>
-      <h1>Skill Zone</h1>
+      <Banner />
     </div>
   );
 }

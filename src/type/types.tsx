@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons';
+import { Variant } from "framer-motion";
 
 export interface servicesType {
     icon: IconType;
@@ -15,4 +16,9 @@ export interface testimonialsType {
     image: string;
     quote: string;
     rating: number;
+};
+
+export interface cardVariantType {
+    hidden: Variant;
+    visible: (index: number) => Variant;
 };

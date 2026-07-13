@@ -22,3 +22,8 @@ export interface cardVariantType {
     hidden: Variant;
     visible: (index: number) => Variant;
 };
+
+export interface faqsType {
+    q: string;
+    a: string;
+}

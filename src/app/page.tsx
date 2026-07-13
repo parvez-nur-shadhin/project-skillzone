@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner";
+import FAQ from "@/Components/FAQ";
 import HowItWorks from "@/Components/HowItWorks";
 import Services from "@/Components/Services";
 import Stats from "@/Components/Stats";
@@ -12,6 +13,7 @@ export default function Home() {
       <Testimonials />
       <Stats />
       <HowItWorks />
+      <FAQ />
     </div>
   );
 }

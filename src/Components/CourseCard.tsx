@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { FiClock, FiTag, FiUser, FiExternalLink } from "react-icons/fi";
 import { Course } from "@/type/types";
+import Link from "next/link";
 
 interface CourseCardProps {
   course: Course;
@@ -61,10 +62,10 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               : `$${Number(course.price).toFixed(2)}`}
           </span>
         </div>
-        <button className="btn btn-secondary btn-sm gap-1 shadow-sm font-bold">
+        <Link href={`/courses/${course._id}`} className="btn btn-secondary btn-sm gap-1 shadow-sm font-bold">
           View Details
           <FiExternalLink className="w-3.5 h-3.5" />
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -34,3 +34,8 @@ export type SignUpFormType = {
   password: string;
   imageUrl: string;
 };
+
+export type LoginFormType = {
+  email: string;
+  password: string;
+};

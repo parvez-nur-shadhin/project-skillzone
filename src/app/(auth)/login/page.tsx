@@ -4,36 +4,27 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import {
-  FiUser,
-  FiMail,
-  FiLock,
-  FiImage,
-  FiEye,
-  FiEyeOff,
-  FiArrowRight,
-} from "react-icons/fi";
-import { SignUpFormType } from "@/type/types";
+import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import { redirect } from "next/navigation";
+import { LoginFormType } from "@/type/types";
 
-const SignUp = () => {
+const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpFormType>();
-  const onSubmit = async (data: SignUpFormType) => {
-    const { data: res, error } = await authClient.signUp.email({
-      name: data.name, // required
+  } = useForm<LoginFormType>();
+  const onSubmit = async (data: LoginFormType) => {
+    const { data: res, error } = await authClient.signIn.email({
       email: data.email, // required
       password: data.password, // required
-      imageUrl: data.imageUrl,
+      rememberMe: true,
     });
     if (res) {
-      toast.success("Successfully Signed in");
+      toast.success("Welcome to Skillzone");
       redirect("/");
     }
     if (!res) {
@@ -58,39 +49,17 @@ const SignUp = () => {
               href="/"
               className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
             >
-              Skillzone
+              SkillZone
             </Link>
             <h2 className="text-2xl font-bold mt-4 tracking-tight">
-              Create your account
+              Sign in to your account
             </h2>
             <p className="text-sm text-base-content/60 mt-1">
-              Start leveling up your career today.
+              Continue leveling up your career.
             </p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-semibold">Full Name</span>
-              </label>
-              <div className="relative flex items-center">
-                <FiUser className="absolute left-4 text-base-content/40 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className={`input input-bordered w-full pl-12 focus:outline-primary ${errors.name ? "border-error" : ""}`}
-                  {...register("name", { required: "Name is required" })}
-                />
-              </div>
-              {errors.name && (
-                <label className="label py-1">
-                  <span className="label-text-alt text-error">
-                    {errors.name.message}
-                  </span>
-                </label>
-              )}
-            </div>
-
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Email Address</span>
@@ -118,38 +87,6 @@ const SignUp = () => {
                 </label>
               )}
             </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-semibold">
-                  Profile Image URL
-                </span>
-              </label>
-              <div className="relative flex items-center">
-                <FiImage className="absolute left-4 text-base-content/40 w-5 h-5" />
-                <input
-                  type="url"
-                  placeholder="https://example.com/avatar.jpg"
-                  className={`input input-bordered w-full pl-12 focus:outline-primary ${errors.imageUrl ? "border-error" : ""}`}
-                  {...register("imageUrl", {
-                    required: "Image URL is required",
-                    pattern: {
-                      value: /^https?:\/\/.+/i,
-                      message:
-                        "Must be a valid URL starting with http:// or https://",
-                    },
-                  })}
-                />
-              </div>
-              {errors.imageUrl && (
-                <label className="label py-1">
-                  <span className="label-text-alt text-error">
-                    {errors.imageUrl.message}
-                  </span>
-                </label>
-              )}
-            </div>
-
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Password</span>
@@ -194,7 +131,7 @@ const SignUp = () => {
                 type="submit"
                 className="btn btn-primary w-full group text-base font-bold"
               >
-                Sign Up
+                Sign In
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
@@ -203,12 +140,12 @@ const SignUp = () => {
           <div className="divider text-xs text-base-content/40 my-6">OR</div>
 
           <p className="text-center text-sm text-base-content/70">
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <Link
-              href="/login"
+              href="/signup"
               className="link link-hover link-primary font-semibold"
             >
-              Log In
+              Sign Up
             </Link>
           </p>
         </div>
@@ -217,4 +154,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default LoginPage;

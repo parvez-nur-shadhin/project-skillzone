@@ -3,9 +3,9 @@ import {
     FiMenu, 
     FiHome, 
     FiBookOpen, 
-    FiUsers, 
     FiInfo, 
-    FiLogIn 
+    FiLogIn, 
+    FiPlus
 } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link href="/"><FiHome /> Home</Link></li>
                         <li><Link href="/courses"><FiBookOpen /> Courses</Link></li>
-                        <li><Link href="/instructors"><FiUsers /> Instructors</Link></li>
+                        <li><Link href="/add-courses"><FiPlus />Add Courses</Link></li>
                         <li><Link href="/about"><FiInfo /> About Us</Link></li>
                     </ul>
                 </div>
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 font-medium">
                     <li><Link href="/"><FiHome className="mb-0.5" /> Home</Link></li>
                     <li><Link href="/courses"><FiBookOpen className="mb-0.5" /> Courses</Link></li>
-                    <li><Link href="/instructors"><FiUsers className="mb-0.5" /> Instructors</Link></li>
+                    <li><Link href="/add-courses"><FiPlus />Add Courses</Link></li>
                     <li><Link href="/about"><FiInfo className="mb-0.5" /> About Us</Link></li>
                 </ul>
             </div>

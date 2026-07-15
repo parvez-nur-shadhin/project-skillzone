@@ -39,3 +39,13 @@ export type LoginFormType = {
   email: string;
   password: string;
 };
+
+export interface CourseInputTypes {
+    title: string;
+    instructorName: string;
+    category: string;
+    price: number;
+    duration: string;
+    thumbnailUrl: string;
+    description: string;
+};

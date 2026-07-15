@@ -7,7 +7,7 @@ export interface servicesType {
   description: string;
   color: string;
   badge: string | null;
-};
+}
 
 export interface testimonialsType {
   name: string;
@@ -16,17 +16,17 @@ export interface testimonialsType {
   image: string;
   quote: string;
   rating: number;
-};
+}
 
 export interface cardVariantType {
   hidden: Variant;
   visible: (index: number) => Variant;
-};
+}
 
 export interface faqsType {
   q: string;
   a: string;
-};
+}
 
 export type SignUpFormType = {
   name: string;
@@ -41,11 +41,22 @@ export type LoginFormType = {
 };
 
 export interface CourseInputTypes {
-    title: string;
-    instructorName: string;
-    category: string;
-    price: number;
-    duration: string;
-    thumbnailUrl: string;
-    description: string;
-};
+  title: string;
+  instructorName: string;
+  category: string;
+  price: number;
+  duration: string;
+  thumbnailUrl: string;
+  description: string;
+}
+
+export interface Course {
+  _id: string;
+  title: string;
+  instructorName: string;
+  category: string;
+  price: number;
+  duration: number | string;
+  thumbnailUrl: string;
+  description: string;
+}

@@ -18,7 +18,7 @@ const Banner = () => {
                             Explore Courses
                             <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                         </Link>
-                        <Link href="/about" className="btn btn-outline btn-lg">
+                        <Link href="/about-us" className="btn btn-outline btn-lg">
                             How it Works
                         </Link>
                     </div>

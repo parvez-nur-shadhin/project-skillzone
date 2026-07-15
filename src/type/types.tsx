@@ -41,6 +41,7 @@ export type LoginFormType = {
 };
 
 export interface CourseInputTypes {
+  uid: string;
   title: string;
   instructorName: string;
   category: string;
@@ -59,4 +60,13 @@ export interface Course {
   duration: number | string;
   thumbnailUrl: string;
   description: string;
+}
+
+export interface UserType {
+  name: string;
+  email: string;
+  emailVerified: boolean;
+  createdAt: string;
+  updatedAt: string;
+  id: string;
 }

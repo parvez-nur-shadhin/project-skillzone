@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
@@ -14,28 +15,45 @@ import {
   FiPlusCircle,
 } from "react-icons/fi";
 import { CourseInputTypes } from "@/type/types";
+import { authClient } from "@/lib/auth-client";
 
 const AddCourses = () => {
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<CourseInputTypes>({
     defaultValues: {
+      uid: user?.id || "",
       category: "",
     },
   });
 
-  const onSubmit: SubmitHandler<CourseInputTypes> = async (data:CourseInputTypes) => {
+  useEffect(() => {
+    if (user?.id) {
+      setValue("uid", user.id);
+    }
+  }, [user, setValue]);
+
+  const onSubmit: SubmitHandler<CourseInputTypes> = async (
+    data: CourseInputTypes,
+  ) => {
     const toastId = toast.loading("Creating your course...");
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/courses`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/courses`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        },
+      );
 
       if (!response.ok) {
         throw new Error("Failed to create course");
@@ -48,7 +66,10 @@ const AddCourses = () => {
         autoClose: 4000,
       });
 
-      reset();
+      reset({
+        uid: user?.id || "",
+        category: "",
+      });
     } catch (error) {
       toast.update(toastId, {
         render: "Failed to add course. Please try again.",
@@ -58,6 +79,27 @@ const AddCourses = () => {
       });
     }
   };
+
+  if (isPending) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen bg-base-200 gap-3">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+        <p className="text-sm font-semibold text-base-content/60">
+          Verifying session credentials...
+        </p>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-base-200 px-4">
+        <div className="alert alert-warning max-w-md shadow-md font-semibold text-sm">
+          <span>⚠️ You must be logged in to create a course.</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-base-200 py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
@@ -77,6 +119,9 @@ const AddCourses = () => {
             directory.
           </p>
         </div>
+
+        <input type="hidden" {...register("uid")} />
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="form-control w-full">
             <label className="label">
@@ -99,6 +144,7 @@ const AddCourses = () => {
               </label>
             )}
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="form-control w-full">
               <label className="label">
@@ -154,6 +200,7 @@ const AddCourses = () => {
               )}
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="form-control w-full">
               <label className="label">
@@ -209,6 +256,7 @@ const AddCourses = () => {
               )}
             </div>
           </div>
+
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Thumbnail Image URL</span>
@@ -237,6 +285,7 @@ const AddCourses = () => {
               </label>
             )}
           </div>
+
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Course Description</span>
@@ -263,10 +312,11 @@ const AddCourses = () => {
               </label>
             )}
           </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-end pt-4 border-t border-base-content/10">
             <button
               type="button"
-              onClick={() => reset()}
+              onClick={() => reset({ uid: user?.id || "", category: "" })}
               className="btn btn-ghost border-base-content/20 hover:bg-base-200 order-2 sm:order-1 font-bold"
             >
               Reset Form

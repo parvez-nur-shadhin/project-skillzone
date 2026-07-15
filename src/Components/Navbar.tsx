@@ -20,7 +20,7 @@ const Navbar = () => {
                         <li><Link href="/"><FiHome /> Home</Link></li>
                         <li><Link href="/courses"><FiBookOpen /> Courses</Link></li>
                         <li><Link href="/add-courses"><FiPlus />Add Courses</Link></li>
-                        <li><Link href="/about"><FiInfo /> About Us</Link></li>
+                        <li><Link href="/about-us"><FiInfo /> About Us</Link></li>
                     </ul>
                 </div>
                 <Link href="/" className="text-3xl font-bold flex items-center gap-2 text-primary">
@@ -32,7 +32,7 @@ const Navbar = () => {
                     <li><Link href="/"><FiHome className="mb-0.5" /> Home</Link></li>
                     <li><Link href="/courses"><FiBookOpen className="mb-0.5" /> Courses</Link></li>
                     <li><Link href="/add-courses"><FiPlus />Add Courses</Link></li>
-                    <li><Link href="/about"><FiInfo className="mb-0.5" /> About Us</Link></li>
+                    <li><Link href="/about-us"><FiInfo className="mb-0.5" /> About Us</Link></li>
                 </ul>
             </div>
             <div className="navbar-end gap-2">

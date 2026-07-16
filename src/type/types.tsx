@@ -70,3 +70,7 @@ export interface UserType {
   updatedAt: string;
   id: string;
 }
+export interface CourseCardProps {
+  course: Course;
+  onDelete: (id: string) => void;
+}

@@ -16,10 +16,15 @@ import {
 } from "react-icons/fi";
 import { CourseInputTypes } from "@/type/types";
 import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 const AddCourses = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+
+  if(!user){
+    redirect("/signup");
+  }
 
   const {
     register,

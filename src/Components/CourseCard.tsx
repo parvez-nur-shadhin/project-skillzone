@@ -3,14 +3,11 @@
 import Image from "next/image";
 import React from "react";
 import { FiClock, FiTag, FiUser, FiExternalLink } from "react-icons/fi";
-import { Course } from "@/type/types";
 import Link from "next/link";
+import { CourseCardPropsPublic } from "@/type/types";
+import type { Course } from "@/type/types";
 
-interface CourseCardProps {
-  course: Course;
-}
-
-export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+export const CourseCard: React.FC<CourseCardPropsPublic> = ({ course }) => {
   return (
     <div className="card bg-base-100 shadow-xl border border-base-content/5 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
       <div>

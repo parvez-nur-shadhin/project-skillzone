@@ -127,7 +127,7 @@ const ManageCourses = () => {
             </div>
           </div>
           <Link
-            href="/courses/add"
+            href="/add-courses"
             className="btn btn-primary btn-sm font-bold flex items-center gap-1 h-10 shadow-sm shrink-0 w-full sm:w-auto"
           >
             <FiPlus /> New Course Module

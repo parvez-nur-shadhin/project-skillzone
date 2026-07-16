@@ -1,11 +1,10 @@
 'use client'
 
 import { FiTarget, FiTerminal, FiBriefcase } from 'react-icons/fi';
-import { motion } from 'framer-motion';
-import { cardVariantType } from '@/type/types';
+import { motion, Variants } from 'framer-motion';
 
 const HowItWorks = () => {
-    const cardVariants: cardVariantType = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 40 },
         visible: (index:number) => ({
             opacity: 1, 

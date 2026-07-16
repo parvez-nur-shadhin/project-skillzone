@@ -18,10 +18,10 @@ export interface testimonialsType {
   rating: number;
 }
 
-export interface cardVariantType {
-  hidden: Variant;
-  visible: (index: number) => Variant;
-}
+// export interface cardVariantType {
+//   hidden: Variant;
+//   visible: (index: number) => Variant;
+// }
 
 export interface faqsType {
   q: string;
@@ -73,4 +73,7 @@ export interface UserType {
 export interface CourseCardProps {
   course: Course;
   onDelete: (id: string) => void;
+}
+export interface CourseCardPropsPublic {
+  course: Course;
 }

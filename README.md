@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillZone
 
-## Getting Started
+SkillZone is a modern, responsive online learning platform built with the latest web technologies to provide a seamless user experience for browsing and managing educational courses.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS & DaisyUI
+* **Animation:** Framer Motion
+* **Authentication:** Better-Auth
+* **Database:** MongoDB
+* **Deployment:** Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Course Discovery:** Interactive `CourseCard` components featuring thumbnails, category tags, duration, and pricing details.
+* **Dynamic Animations:** Smooth entry and hover transitions implemented via Framer Motion for a premium feel.
+* **User Authentication:** Integrated session management using `better-auth`.
+* **Responsive Design:** Fully styled with Tailwind CSS and DaisyUI components for desktop and mobile consistency.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+* Node.js (LTS version recommended)
+* MongoDB Instance
+* npm or yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  Clone the repository or navigate to your project folder.
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Set up your environment variables. Create a `.env.local` file in the root directory and add the following:
+    ```env
+    MONGODB_URI=your_mongodb_connection_string_here
+    BETTER_AUTH_SECRET=your_secret_key
+    BETTER_AUTH_URL=http://localhost:3000
+    ```
+4.  Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+## ⚙️ Environment Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To successfully run this project, ensure the environment variables are correctly configured both in your local `.env.local` and your production deployment settings (e.g., Vercel Environment Variables).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Type Safety:** This project is built with a modular component architecture, utilizing specific type definitions located in `src/type/types.tsx` to ensure type safety across the entire application.

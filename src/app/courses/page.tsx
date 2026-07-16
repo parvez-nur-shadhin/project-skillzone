@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { CourseCard, type Course } from "@/Components/CourseCard";
+import { CourseCard } from "@/Components/CourseCard";
+import type { Course } from "@/type/types";
 import { FiSearch, FiFilter, FiBookOpen } from "react-icons/fi";
 
 const CoursesPage = () => {

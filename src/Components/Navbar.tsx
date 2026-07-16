@@ -138,8 +138,8 @@ const Navbar = () => {
                 <Image
                   width={60}
                   height={60}
-                  src={session.user.image}
-                  alt={session.user.name}
+                  src={session.user.image || "/default-avatar.png"}
+                  alt={session.user.name || "User Avatar"}
                   className="object-cover"
                 />
               </div>

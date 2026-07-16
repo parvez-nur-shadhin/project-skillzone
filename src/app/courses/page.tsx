@@ -99,7 +99,7 @@ const CoursesPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-base-100 p-4 rounded-xl shadow-md border border-base-content/5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-base-100 p-4 rounded-xl shadow-md border border-base-content/5">
           <div className="form-control md:col-span-2 w-full">
             <div className="relative flex items-center">
               <FiSearch className="absolute left-4 text-base-content/40 w-5 h-5 pointer-events-none" />

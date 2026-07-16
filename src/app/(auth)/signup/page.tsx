@@ -30,7 +30,7 @@ const SignUp = () => {
       name: data.name, // required
       email: data.email, // required
       password: data.password, // required
-      imageUrl: data.imageUrl,
+      image: data.imageUrl,
     });
     if (res) {
       toast.success("Successfully Signed in");

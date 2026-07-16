@@ -8,6 +8,7 @@ import {
   FiLogIn,
   FiPlus,
 } from "react-icons/fi";
+import { RiCustomerServiceFill } from "react-icons/ri";
 
 const Navbar = () => {
   return (
@@ -41,6 +42,11 @@ const Navbar = () => {
               <Link href="/manage-courses">
                 <BsFillGearFill />
                 manage Courses
+              </Link>
+            </li>
+            <li>
+              <Link href="/support">
+                <RiCustomerServiceFill /> Help / Support
               </Link>
             </li>
             <li>
@@ -79,6 +85,11 @@ const Navbar = () => {
             <Link href="/manage-courses">
               <BsFillGearFill />
               manage Courses
+            </Link>
+          </li>
+          <li>
+            <Link href="/support">
+              <RiCustomerServiceFill /> Help / Support
             </Link>
           </li>
           <li>
